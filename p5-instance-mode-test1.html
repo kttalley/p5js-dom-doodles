@@ -1,0 +1,60 @@
+<html>
+    <script text = "text/javascript" src ="lib/p5.js"></script>    
+        <script text = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
+    <script>
+        let canv1 = function (sketch1){
+            
+            sketch1.setup = function () {
+                sketch1.createCanvas(150, 150, sketch1.WEBGL);
+                
+                // sketch1.position(100,100);
+
+                
+            };
+            let boxS = 0;
+            sketch1.draw = function () {
+                sketch1.background(100);
+                // sketch1.translate(sketch1.width/2, sketch1.height/2);
+                sketch1.rotateX(sketch1.frameCount * 0.01);
+                sketch1.box(boxS);
+                
+
+                boxS+=sketch1.sin(0.1);
+            };
+        };
+        var canv1inst = new p5(canv1, 'c1');
+
+        let canv2 = function (sketch2){
+
+            sketch2.setup = function () {
+                sketch2.createCanvas(75,75);
+                // sketch2.position(50,50);
+            };
+
+            sketch2.draw = function () {
+                sketch2.background(100,100,200);
+                sketch2.ellipse(sketch2.mouseX,sketch2.mouseY,50);
+            };
+        };
+        var canvas2inst = new p5(canv2, 'c2');
+    </script>    
+    <style>
+        #c2 {
+            /* position: absolute; */
+            /* padding: 200px; */
+            /* transform: translate(1050,300); */
+            margin-left: 200px;
+            margin-top: 200px;
+        }
+        
+    </style>
+
+    <body>
+        <div id = "c1"></div>
+        <div id = "c2"></div>
+
+
+    </body>
+
+
+</html>
